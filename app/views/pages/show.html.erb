@@ -1,8 +1,12 @@
-<h1>Showing selected article</h1>
+<h1>Article Sucessfully created</h1>
 
-<p> Title: <% =@apage.title %>
+<p> Title: <%= @page.title %>
   </p>
   
   <p>
-    Description: <% = @page.description %>
+    Description: <%= @page.description %>
   </p>
+  
+  <%= link_to "Edit this article", edit_page_path(@page) %> |
+  
+  <%= link_to "Back to article listing" , pages_path %>
