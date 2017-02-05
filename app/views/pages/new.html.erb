@@ -1,6 +1,15 @@
 <h1>Create new article</h1>
 
-
+<% if page.error.any? %>
+<ul>
+  <% page.errors.full_messages.each do |msg| %>
+  <li>
+    <%= msg %>
+  </li>
+  <% end %>
+</ul>
+<% end %>
+<h2>The following prevented article from getting created</h2>
 <%= form_for @page do |f| %>
 <p>
   <%= f.label :title %></br>

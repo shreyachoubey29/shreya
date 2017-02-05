@@ -8,9 +8,19 @@ class PageController < ApplicationController
   
   def create 
     @page = Page.new{page_params}
-    @page.save
+    if @page.save
+      flash[:notice] = "Article was sucessfully created"
+      redirect_to page_path(@page)
+      
+    else
+      render 'new'
+    end
   end
   
+  def show 
+    @page = Page.find(params[:id])
+    
+  end
   
   private def page_params
       
