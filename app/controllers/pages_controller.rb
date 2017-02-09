@@ -18,7 +18,7 @@ class PagesController < ApplicationController
 
   if @page.save
 
-  flash[:notice] = "Article was successfully created"
+  flash[:success] = "Article was successfully created"
 
   redirect_to page_path(@page)
 
@@ -42,7 +42,7 @@ class PagesController < ApplicationController
   def update
     
     if @page.update(page_params)
-      flash[:notice] = "Article was sucessfully updated"
+      flash[:success] = "Article was sucessfully updated"
       redirect_to page_path(@page)
     else
       render 'edit'
@@ -52,7 +52,7 @@ class PagesController < ApplicationController
   def destroy 
     
     @page.destroy
-    flash[:notice] = "Article was succesfully deleted"
+    flash[:danger] = "Article was succesfully deleted"
     redirect_to pages_path
     
     
