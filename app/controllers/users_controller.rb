@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     
     @user = User.new
   
-end
+  end
   
   def create 
     @user = User.new(user_params)
@@ -13,8 +13,8 @@ end
       redirect_to pages_path
     else
       render 'new'
+    end
   end
-end
 
   def edit 
     
@@ -31,6 +31,10 @@ end
   end
   end 
   
+  def show
+    
+    @user = User.find(params[:id])
+  end 
   private
   def user_params
     params.require(:user).permit(:username, :email, :password)
