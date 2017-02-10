@@ -15,19 +15,13 @@ class PagesController < ApplicationController
   def create 
     
   @page = Page.new(page_params)
-
+  @page.user = User.first
   if @page.save
-
   flash[:success] = "Article was successfully created"
-
   redirect_to page_path(@page)
-
   else
-
   render 'new'
-
   end
-
   end
   
   def show 
